@@ -8,6 +8,7 @@ function MyApp() {
     <main>
       <h1>React Todo List</h1>
       <input type="text" placeholder="Add item into as todo" />
+      <button>Add</button>
       <ul>
         <li className="deleted">
           <input type="checkbox" />
