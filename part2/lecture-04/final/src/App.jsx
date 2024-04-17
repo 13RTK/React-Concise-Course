@@ -1,4 +1,5 @@
 import { useState } from "react";
+import UsernameInput from "./UsernameInput";
 import "./App.css";
 
 function App() {
@@ -26,9 +27,8 @@ function App() {
     <main>
       <h2>Login Form</h2>
       <form onSubmit={handleSubmit} style={{ textAlign: "center" }}>
-        <input
+        <UsernameInput
           className={usernameClass}
-          type="text"
           value={username}
           onChange={(event) => setUsername(event.target.value)}
         />
