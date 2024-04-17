@@ -1,0 +1,19 @@
+.input {
+  margin: 2px;
+}
+
+.input-error {
+  border: 1px solid red;
+}
+
+.btn {
+  margin: 1rem;
+}
+
+h2 {
+  text-align: center;
+}
+
+main {
+  border: 1px solid black;
+}
