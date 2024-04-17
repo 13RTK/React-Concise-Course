@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 import AppInput from "./AppInput";
+import AppButton from "./AppButton";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -43,9 +44,10 @@ function App() {
         />
 
         <br />
-        <button type="submit" className="btn">
-          Login
-        </button>
+        <AppButton>
+          <span style={{ color: "red" }}>Login</span>
+        </AppButton>
+        <AppButton>Register</AppButton>
       </form>
     </main>
   );
