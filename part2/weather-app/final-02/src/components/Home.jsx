@@ -8,19 +8,19 @@ import { useGeolocation } from "../hooks/useGeolocation";
 import { getCurrentWeather } from "../services/apiWeather";
 
 function Home() {
-  const { getCurrentLocation, isLoading } = useGeolocation();
-
-  async function loadData() {
-    const position = await getCurrentLocation();
-    const weatherData = await getCurrentWeather(
-      position.latitude,
-      position.longitude
-    );
-
-    console.log(weatherData);
-  }
+  const { getCurrentLocation } = useGeolocation();
 
   useEffect(() => {
+    async function loadData() {
+      const position = await getCurrentLocation();
+
+      const weatherData = await getCurrentWeather(
+        position.latitude,
+        position.longitude
+      );
+      console.log("weatherData: ", weatherData);
+    }
+
     loadData();
   }, []);
 
