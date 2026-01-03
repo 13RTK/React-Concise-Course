@@ -1,4 +1,4 @@
-# This tutorial materials base on:
+# This material is based on the React Concise Tutorial by [HDAlex_John](https://space.bilibili.com/337242418)
 
 ## 2024
 
