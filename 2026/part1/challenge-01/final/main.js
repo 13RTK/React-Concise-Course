@@ -1,4 +1,8 @@
 /*
+  1. Bind the input/select to the states
+  2. Change the circle styles based on the states
+
+  tips: circle size and rotate style:
   height: 0px,
   width: 0px,
   lineHeight: 0px,
