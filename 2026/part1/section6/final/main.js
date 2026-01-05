@@ -1,5 +1,6 @@
 const cities = [
   {
+    id: 1,
     name: "New York",
     country: "USA",
     forecast: [
@@ -13,6 +14,7 @@ const cities = [
     ],
   },
   {
+    id: 2,
     name: "London",
     country: "UK",
     forecast: [
@@ -26,6 +28,7 @@ const cities = [
     ],
   },
   {
+    id: 3,
     name: "Tokyo",
     country: "Japan",
     forecast: [
@@ -40,12 +43,14 @@ const cities = [
   },
 
   {
+    id: 4,
     name: "Sydney",
     country: "Australia",
     forecast: [],
   },
 
   {
+    id: 5,
     name: "Beijing",
     country: "China",
   },
@@ -54,7 +59,7 @@ const cities = [
 function MyApp() {
   function renderForecastList(forecastList) {
     return forecastList.map((forecast) => (
-      <ul>
+      <ul key={forecast.date}>
         <li>
           {forecast.date}
           <span>
@@ -66,16 +71,19 @@ function MyApp() {
     ));
   }
 
+  function isForecastExists(forecastList) {
+    return forecastList && forecastList.length > 0;
+  }
+
   return (
     <main>
       {cities.map((city) => (
-        <section className="city">
+        <section key={city.id} className="city">
           <h2>{city.country}</h2>
           <h3>{city.name}</h3>
 
-          {city.forecast && city.forecast.length
-            ? renderForecastList(city.forecast)
-            : "No forecast"}
+          {isForecastExists(city.forecast) && renderForecastList(city.forecast)}
+          {!isForecastExists(city.forecast) && <span>No forecast</span>}
         </section>
       ))}
     </main>
