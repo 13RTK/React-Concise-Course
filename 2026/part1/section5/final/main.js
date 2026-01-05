@@ -52,52 +52,32 @@ const cities = [
 ];
 
 function MyApp() {
+  function renderForecastList(forecastList) {
+    return forecastList.map((forecast) => (
+      <ul>
+        <li>
+          {forecast.date}
+          <span>
+            {" "}
+            temperature: {forecast.temperature}℃({forecast.weather})
+          </span>
+        </li>
+      </ul>
+    ));
+  }
+
   return (
     <main>
-      <section className="city">
-        <h2>UK</h2>
-        <h3>London</h3>
+      {cities.map((city) => (
+        <section className="city">
+          <h2>{city.country}</h2>
+          <h3>{city.name}</h3>
 
-        <ul>
-          <li>
-            {new Date().toLocaleDateString()}
-            <span> temperature: 20℃(Sunny)</span>
-          </li>
-          <li>
-            {new Date().toLocaleDateString()}
-            <span> temperature: 19℃(Cloudy)</span>
-          </li>
-          <li>
-            {new Date().toLocaleDateString()}
-            <span> temperature: 12℃(Rain)</span>
-          </li>
-        </ul>
-      </section>
-      <section className="city">
-        <h2>UK</h2>
-        <h3>London</h3>
-
-        <ul>
-          <li>
-            {new Date().toLocaleDateString()}
-            <span> temperature: 20℃(Sunny)</span>
-          </li>
-          <li>
-            {new Date().toLocaleDateString()}
-            <span> temperature: 19℃(Cloudy)</span>
-          </li>
-          <li>
-            {new Date().toLocaleDateString()}
-            <span> temperature: 12℃(Rain)</span>
-          </li>
-        </ul>
-      </section>
-      <section className="city">
-        <h2>CN</h2>
-        <h3>Beijing</h3>
-
-        <p>Can't find any data</p>
-      </section>
+          {city.forecast && city.forecast.length
+            ? renderForecastList(city.forecast)
+            : "No forecast"}
+        </section>
+      ))}
     </main>
   );
 }
