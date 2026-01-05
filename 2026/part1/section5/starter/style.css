@@ -1,0 +1,18 @@
+.city {
+  text-align: center;
+  border: 1px solid orangered;
+  border-radius: 4px;
+  margin: 8px auto;
+}
+
+li {
+  list-style: none;
+}
+
+h2 {
+  color: blueviolet;
+}
+
+h3 {
+  color: brown;
+}
