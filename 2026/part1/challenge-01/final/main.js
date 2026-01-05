@@ -10,16 +10,38 @@
 */
 
 function MyApp() {
+  const [isPurple, setIsPurple] = React.useState(false);
+  const [textColor, setTextColor] = React.useState("");
+
+  const circleClasses = `${isPurple ? "purple" : ""} ${textColor}`;
+
+  const [size, setSize] = React.useState(150);
+  const [rotate, setRotate] = React.useState(0);
+
+  const circleStyles = {
+    height: `${size}px`,
+    width: `${size}px`,
+    lineHeight: `${size}px`,
+    transform: `rotate(${rotate}deg)`,
+  };
+
   return (
     <main>
       <label>
         Purple
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          onChange={() => setIsPurple(!isPurple)}
+          checked={isPurple}
+        />
       </label>
 
       <label>
         text color
-        <select>
+        <select
+          value={textColor}
+          onChange={(event) => setTextColor(event.target.value)}
+        >
           <option value="" selected>
             White
           </option>
@@ -30,14 +52,24 @@ function MyApp() {
 
       <label>
         Circle Size
-        <input type="number" value="150" />
+        <input
+          type="number"
+          value={size}
+          onChange={(event) => setSize(event.target.value)}
+        />
       </label>
 
       <label>
         Circle Rotate
-        <input type="number" value="0" />
+        <input
+          type="number"
+          value={rotate}
+          onChange={(event) => setRotate(event.target.value)}
+        />
       </label>
-      <div className="circle">Hi!</div>
+      <div className={`circle ${circleClasses}`} style={circleStyles}>
+        Hi!
+      </div>
     </main>
   );
 }
