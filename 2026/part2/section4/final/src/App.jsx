@@ -1,11 +1,12 @@
 import { useState } from "react";
+import UsernameInput from "./UsernameInput.jsx";
 
 function App() {
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
   const usernameClass =
     username.length <= 2 && username.length > 0 ? "input-error" : "";
+  const [password, setPassword] = useState("");
+
   const passwordClass =
     password.length <= 2 && password.length > 0 ? "input-error" : "";
 
@@ -28,11 +29,10 @@ function App() {
       <h2>Login Form</h2>
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={username}
-          className={usernameClass}
-          onChange={(event) => setUsername(event.target.value)}
+        <UsernameInput
+          username={username}
+          usernameClass={usernameClass}
+          setUsername={setUsername}
         />
         <br />
         <input
