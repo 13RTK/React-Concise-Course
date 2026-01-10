@@ -1,6 +1,4 @@
 import { useState } from "react";
-import UsernameInput from "./UsernameInput.jsx";
-import PasswordInput from "./PasswordInput.jsx";
 import AppInput from "./AppInput.jsx";
 
 function App() {
