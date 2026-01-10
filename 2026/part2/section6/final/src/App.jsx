@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AppInput from "./AppInput.jsx";
+import AppButton from "./AppButton.jsx";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -44,7 +45,9 @@ function App() {
         />
 
         <br />
-        <button type="submit">Login</button>
+
+        <AppButton>Login</AppButton>
+        <AppButton>Sign up</AppButton>
       </form>
     </main>
   );

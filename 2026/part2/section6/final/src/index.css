@@ -11,6 +11,8 @@ input {
   border: 1px solid red;
 }
 
-button {
+.btn {
   margin: 1rem;
+  border: 1px solid pink;
+  border-radius: 3px;
 }
