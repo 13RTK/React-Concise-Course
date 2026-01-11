@@ -1,29 +1,15 @@
-import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 
 function App() {
   const adviceURL = 'https://api.adviceslip.com/advice';
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-  const [advice, setAdvice] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
-  async function getAdvice() {
-    setIsLoading(true);
-
-    const response = await fetch(adviceURL);
-    const data = await response.json();
-
-    setIsLoading(false);
-    setAdvice(data.slip.advice);
-  }
-
-  useEffect(() => {
-    getAdvice();
-  }, []);
+  const { data, isLoading, mutate: getAdvice } = useSWR(adviceURL, fetcher);
 
   return (
     <main>
       <h1>Advice App</h1>
-      <p>{isLoading ? 'Loading...' : advice}</p>
+      <p>{isLoading ? 'Loading...' : data.slip?.advice}</p>
       <button disabled={isLoading} onClick={getAdvice}>
         Get Advice
       </button>
