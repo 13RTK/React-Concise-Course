@@ -1,0 +1,16 @@
+main {
+  border: 1px solid black;
+  text-align: center;
+}
+
+input {
+  margin: 2px;
+}
+
+.input-error {
+  border: 1px solid red;
+}
+
+button {
+  margin: 1rem;
+}
