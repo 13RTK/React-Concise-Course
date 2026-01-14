@@ -2,18 +2,12 @@ import { Button } from '@mui/material';
 import Day from './Day';
 import styles from './Home.module.css';
 
-function Home({ getCurrentLocation, status, setIsHome }) {
-  const isLocationLoaded = status.toLowerCase().includes('forecast');
-
+function Home() {
   return (
     <section className={styles.section}>
       <Day />
-      <Button
-        variant="contained"
-        size="large"
-        onClick={isLocationLoaded ? () => setIsHome(false) : getCurrentLocation}
-      >
-        {status}
+      <Button variant="contained" size="large">
+        Get Start
       </Button>
     </section>
   );
