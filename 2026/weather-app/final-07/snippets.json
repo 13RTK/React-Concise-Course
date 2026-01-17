@@ -1,0 +1,25 @@
+{
+  "Print to console": {
+    "prefix": "clog",
+    "body": ["console.log($1);"],
+    "description": "Log output to console"
+  },
+
+  "importCSSModule": {
+    "prefix": "csm",
+    "body": ["import styles from './${TM_FILENAME_BASE}.module.css'"],
+    "description": "Import CSS Module as `styles`"
+  },
+
+  "static function components": {
+    "prefix": "sfc",
+    "body": [
+      "function $TM_FILENAME_BASE() {",
+      "  return <>$1</>;",
+      "}",
+      "export default $TM_FILENAME_BASE;",
+      ""
+    ],
+    "description": "Static function components"
+  }
+}
